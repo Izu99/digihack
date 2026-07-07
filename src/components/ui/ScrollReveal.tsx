@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -15,6 +16,8 @@ if (typeof window !== "undefined") {
  * No data attributes needed — targets semantic HTML.
  */
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -69,7 +72,7 @@ export default function ScrollReveal() {
       // ─── 3. SECTION LEAD PARAGRAPHS ──────────────────────────────────
       gsap.utils
         .toArray<HTMLElement>("section p")
-        .forEach((el, i) => {
+        .forEach((el) => {
           if (reduced) return;
           gsap.fromTo(
             el,
@@ -176,7 +179,7 @@ export default function ScrollReveal() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

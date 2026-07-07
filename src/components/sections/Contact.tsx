@@ -56,8 +56,8 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-24 bg-[#15233A] relative overflow-hidden">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.05] blur-3xl" />
+    <section className="py-24 bg-[#F3F6FA] relative overflow-hidden">
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.06] blur-3xl" />
 
       <div ref={ref} className="max-w-[1180px] mx-auto px-7 relative z-10">
         {/* Heading */}
@@ -68,13 +68,13 @@ export default function Contact() {
           className="text-center mb-14"
         >
           <span className="label block mb-4">Get In Touch</span>
-          <h2 className="text-[52px] md:text-[64px] font-black tracking-tight text-white leading-[1.02]">
+          <h2 className="text-[52px] md:text-[64px] font-black tracking-tight text-[#0E1A2B] leading-[1.02]">
             Let&apos;s Build
             <br />
-            <span className="text-[#18b2de]">Something.</span>
+            <span className="text-[#0B84A8]">Something.</span>
           </h2>
 
-          <p className="text-[#9aa3b2] mt-5 text-[15.5px] leading-[1.65] max-w-[480px] mx-auto">
+          <p className="text-[#54607A] mt-5 text-[15.5px] leading-[1.65] max-w-[480px] mx-auto">
             Ready to take your brand to the next level? Let&apos;s talk about what we
             can build together.
           </p>
@@ -91,17 +91,17 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.2 + i * 0.08 }}
-              className="group flex items-start gap-4 p-6 rounded-2xl border border-white/8 bg-white/[0.03] cursor-pointer hover:border-[#18b2de]/40 hover:bg-[#18b2de]/5 hover:shadow-[0_10px_30px_-18px_rgba(24,178,222,0.3)] transition-all duration-300"
+              className="group flex items-start gap-4 p-6 rounded-2xl border border-[#0E1A2B]/8 bg-white cursor-pointer hover:border-[#18b2de]/40 hover:bg-[#18b2de]/5 hover:shadow-[0_10px_30px_-18px_rgba(24,178,222,0.3)] transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-[#18b2de]/10 border border-[#18b2de]/20 flex items-center justify-center flex-shrink-0 text-[#18b2de] group-hover:bg-[#18b2de]/20 transition-colors duration-200">
                 {card.icon}
               </div>
               <div>
-                <p className="text-[#7A8FA6] text-[10px] uppercase tracking-widest font-mono mb-1">{card.label}</p>
-                <p className="text-white font-bold group-hover:text-[#18b2de] transition-colors duration-200 text-[15px]">
+                <p className="text-[#6B7A93] text-[10px] uppercase tracking-widest font-mono mb-1">{card.label}</p>
+                <p className="text-[#0E1A2B] font-bold group-hover:text-[#0B84A8] transition-colors duration-200 text-[15px]">
                   {card.value}
                 </p>
-                <p className="text-[#7A8FA6] text-xs mt-0.5">{card.sub}</p>
+                <p className="text-[#6B7A93] text-xs mt-0.5">{card.sub}</p>
               </div>
             </motion.a>
           ))}

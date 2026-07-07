@@ -17,10 +17,10 @@ const TRACK = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
 function TickerItem({ name, industry }: { name: string; industry: string }) {
   return (
     <span className="inline-flex items-center gap-3 px-8 flex-shrink-0">
-      <span className="font-bold text-white text-[15px] whitespace-nowrap">
+      <span className="font-bold text-[#0E1A2B] text-[15px] whitespace-nowrap">
         {name}
       </span>
-      <span className="text-[#7A8FA6] text-[13px] whitespace-nowrap font-mono">
+      <span className="text-[#6B7A93] text-[13px] whitespace-nowrap font-mono">
         {industry}
       </span>
       {/* Separator dot */}
@@ -34,7 +34,7 @@ export default function Clients() {
   const inView = useInView(ref, { once: true });
 
   return (
-    <section id="clients" className="py-24 bg-[#15233A] overflow-hidden">
+    <section className="py-24 bg-[#F3F6FA] overflow-hidden">
       {/* Heading */}
       <div ref={ref} className="max-w-[1180px] mx-auto px-7 mb-14">
         <motion.div
@@ -44,11 +44,11 @@ export default function Clients() {
           className="text-center"
         >
           <span className="label block mb-4">Trusted By</span>
-          <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-white leading-[1.08]">
+          <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
             Brands We&apos;ve{" "}
-            <span className="text-[#18b2de]">Built With</span>
+            <span className="text-[#0B84A8]">Built With</span>
           </h2>
-          <p className="text-[#9aa3b2] mt-4 text-[15px] leading-[1.65] max-w-[460px] mx-auto">
+          <p className="text-[#54607A] mt-4 text-[15px] leading-[1.65] max-w-[460px] mx-auto">
             From emerging artists to established industry leaders — across Sri Lanka,
             Australia, and beyond.
           </p>
@@ -59,9 +59,9 @@ export default function Clients() {
       <div className="relative">
         {/* Left + right gradient fade edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10"
-          style={{ background: "linear-gradient(to right, #15233A, transparent)" }} />
+          style={{ background: "linear-gradient(to right, #F3F6FA, transparent)" }} />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10"
-          style={{ background: "linear-gradient(to left, #15233A, transparent)" }} />
+          style={{ background: "linear-gradient(to left, #F3F6FA, transparent)" }} />
 
         {/* Row 1 — scroll left */}
         <div className="flex overflow-hidden mb-4">

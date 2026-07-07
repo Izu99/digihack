@@ -47,7 +47,7 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 bg-[#0E1A2B] relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
 
@@ -61,10 +61,10 @@ export default function Testimonials() {
         >
           <span className="label block mb-4">Client Voices</span>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-white leading-[1.08]">
-              What Our <span className="text-[#18b2de]">Clients Say</span>
+            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
+              What Our <span className="text-[#0B84A8]">Clients Say</span>
             </h2>
-            <p className="text-[#9aa3b2] text-[15px] leading-[1.65] max-w-sm">
+            <p className="text-[#54607A] text-[15px] leading-[1.65] max-w-sm">
               Real results, real relationships. Here&apos;s what the brands we&apos;ve
               built with have to say about working with DigiHack.
             </p>
@@ -82,11 +82,11 @@ export default function Testimonials() {
             testimonials={TESTIMONIALS}
             autoplay
             colors={{
-              name:                 "#F0F4F8",
-              designation:          "#18b2de",
-              testimony:            "#9aa3b2",
-              arrowBackground:      "#15233A",
-              arrowForeground:      "#F0F4F8",
+              name:                 "#0E1A2B",
+              designation:          "#0B84A8",
+              testimony:            "#54607A",
+              arrowBackground:      "#F3F6FA",
+              arrowForeground:      "#0E1A2B",
               arrowHoverBackground: "#18b2de",
             }}
             fontSizes={{

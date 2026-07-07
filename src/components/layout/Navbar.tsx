@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useMotionValue, useSpring } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Contact", href: "/contact" },
 ];
+
+const MotionLink = motion(Link);
 
 function MagneticCTA({ href, children }: { href: string; children: React.ReactNode }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -18,7 +21,7 @@ function MagneticCTA({ href, children }: { href: string; children: React.ReactNo
   const sy = useSpring(y, { stiffness: 300, damping: 20 });
 
   return (
-    <motion.a
+    <MotionLink
       ref={ref}
       href={href}
       style={{ x: sx, y: sy }}
@@ -32,7 +35,7 @@ function MagneticCTA({ href, children }: { href: string; children: React.ReactNo
       className="inline-flex items-center gap-2 bg-[#18b2de] text-[#0E1A2B] font-bold px-5 py-2.5 rounded-lg text-sm cursor-pointer transition-shadow duration-200 hover:shadow-[0_8px_24px_-8px_rgba(24,178,222,0.6)]"
     >
       {children}
-    </motion.a>
+    </MotionLink>
   );
 }
 
@@ -57,7 +60,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1180px] mx-auto px-7 flex items-center justify-between gap-6">
           {/* Logo — matches HTML style: white box with "PRIME" + cyan badge "ONE" */}
-          <a href="#" className="flex items-center gap-2 flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <div className="flex items-center gap-0 bg-white rounded-lg px-2 py-1.5">
               <span className="text-[#0E1A2B] font-black text-sm tracking-tight leading-none">
                 DIGI
@@ -66,18 +69,18 @@ export default function Navbar() {
                 HACK
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-7">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm font-semibold text-white/80 hover:text-white hover:text-[#18b2de] transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -93,7 +96,7 @@ export default function Navbar() {
               </span>
               071 758 6847
             </a>
-            <MagneticCTA href="#contact">
+            <MagneticCTA href="/contact">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-3.5 h-3.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
               </svg>
@@ -123,22 +126,22 @@ export default function Navbar() {
       >
         <nav className="flex flex-col gap-5">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className="text-2xl font-black text-white hover:text-[#18b2de] transition-colors duration-200 cursor-pointer"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             onClick={() => setMenuOpen(false)}
             className="mt-4 px-6 py-3 rounded-lg bg-[#18b2de] text-[#0E1A2B] font-bold text-center cursor-pointer"
           >
             Start a Project
-          </a>
+          </Link>
         </nav>
         <div className="mt-auto space-y-1">
           <p className="text-[#7A8FA6] text-xs font-mono">digihacklk@gmail.com</p>

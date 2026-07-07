@@ -37,7 +37,7 @@ export default function Stats() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-[#0a1525] border-t border-white/[0.06]">
+    <section ref={ref} className="bg-white border-t border-[#0E1A2B]/[0.06]">
       <div className="max-w-[1180px] mx-auto px-7">
         <div className="grid grid-cols-2 md:grid-cols-4" data-reveal-stagger>
           {STATS.map((stat, i) => (
@@ -50,13 +50,13 @@ export default function Stats() {
             >
               {/* Divider between items */}
               {i > 0 && (
-                <div className="absolute left-0 top-[14%] bottom-[14%] w-px bg-white/[0.08]" />
+                <div className="absolute left-0 top-[14%] bottom-[14%] w-px bg-[#0E1A2B]/[0.08]" />
               )}
-              <div className="text-[#18b2de] font-black text-[42px] leading-none tracking-tight mb-2">
+              <div className="text-[#0B84A8] font-black text-[42px] leading-none tracking-tight mb-2">
                 <CountUp target={stat.num} suffix={stat.suffix} inView={inView} />
               </div>
-              <div className="text-white font-bold text-sm mb-1.5">{stat.label}</div>
-              <div className="text-[#7A8FA6] text-xs leading-snug max-w-[160px]">{stat.sub}</div>
+              <div className="text-[#0E1A2B] font-bold text-sm mb-1.5">{stat.label}</div>
+              <div className="text-[#6B7A93] text-xs leading-snug max-w-[160px]">{stat.sub}</div>
             </motion.div>
           ))}
         </div>

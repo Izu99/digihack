@@ -3,11 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const ThreeCanvas = dynamic(() => import("@/components/ui/ThreeCanvas"), {
   ssr: false,
   loading: () => null,
 });
+
+const MotionLink = motion(Link);
 
 const WORDS = ["We Hack", "The Digital", "World."];
 
@@ -41,7 +44,7 @@ function MagneticBtn({
   const sy = useSpring(y, { stiffness: 260, damping: 22 });
 
   return (
-    <motion.a
+    <MotionLink
       ref={ref}
       href={href}
       style={{ x: sx, y: sy }}
@@ -60,7 +63,7 @@ function MagneticBtn({
       }
     >
       {children}
-    </motion.a>
+    </MotionLink>
   );
 }
 
@@ -153,13 +156,13 @@ export default function Hero() {
           transition={{ delay: 0.92, duration: 0.55 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <MagneticBtn href="#services">
+          <MagneticBtn href="/services">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
             </svg>
             Start a Project
           </MagneticBtn>
-          <MagneticBtn href="#work" primary={false}>
+          <MagneticBtn href="/work" primary={false}>
             View Our Work
           </MagneticBtn>
         </motion.div>

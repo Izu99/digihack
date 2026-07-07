@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const FEATURES = [
   {
@@ -48,7 +49,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 bg-[#0E1A2B] relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
 
       <div ref={ref} className="max-w-[1180px] mx-auto px-7">
@@ -88,10 +89,10 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="label block mb-4">Who We Are</span>
-            <h2 className="text-4xl md:text-[46px] font-black tracking-tight leading-[1.08] text-white mb-4">
-              We are <span className="text-[#18b2de]">DigiHack.</span>
+            <h2 className="text-4xl md:text-[46px] font-black tracking-tight leading-[1.08] text-[#0E1A2B] mb-4">
+              We are <span className="text-[#0B84A8]">DigiHack.</span>
             </h2>
-            <p className="text-[#9aa3b2] text-[15.5px] leading-[1.7] mb-8 max-w-[520px]">
+            <p className="text-[#54607A] text-[15.5px] leading-[1.7] mb-8 max-w-[520px]">
               People come first at DigiHack. We&apos;re a software & digital marketing studio that
               helps businesses build the right product — and then bring it to the right market.
               Strategy, engineering and growth, under one roof.
@@ -102,32 +103,32 @@ export default function About() {
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
-                  className="flex gap-3 items-start p-4 rounded-xl border border-white/8 bg-white/[0.03] hover:border-[#18b2de]/30 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(24,178,222,0.2)] transition-all duration-200 cursor-default"
+                  className="flex gap-3 items-start p-4 rounded-xl border border-[#0E1A2B]/8 bg-[#0E1A2B]/[0.03] hover:border-[#18b2de]/30 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(24,178,222,0.2)] transition-all duration-200 cursor-default"
                 >
                   <div className="w-9 h-9 rounded-lg bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center flex-shrink-0">
                     {f.icon}
                   </div>
                   <div>
-                    <h4 className="text-white font-bold text-sm mb-1">{f.title}</h4>
-                    <p className="text-[#7A8FA6] text-xs leading-[1.55]">{f.desc}</p>
+                    <h4 className="text-[#0E1A2B] font-bold text-sm mb-1">{f.title}</h4>
+                    <p className="text-[#6B7A93] text-xs leading-[1.55]">{f.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-[#18b2de] text-[#0E1A2B] font-bold px-6 py-3.5 rounded-xl text-[14.5px] cursor-pointer hover:shadow-[0_10px_24px_-8px_rgba(24,178,222,0.6)] transition-shadow duration-200"
               >
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
                 </svg>
                 Let&apos;s Work Together
-              </a>
+              </Link>
               <a
                 href="tel:+94717586847"
-                className="inline-flex items-center gap-2.5 text-white font-bold text-[14.5px] cursor-pointer"
+                className="inline-flex items-center gap-2.5 text-[#0E1A2B] font-bold text-[14.5px] cursor-pointer"
               >
                 <span className="w-8 h-8 rounded-full bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center">
                   <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">

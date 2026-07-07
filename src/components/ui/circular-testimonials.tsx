@@ -236,7 +236,7 @@ export const CircularTestimonials = ({
               </h3>
               <p
                 className="font-mono uppercase tracking-widest"
-                style={{ color: colorDesignation, fontSize: "11px" }}
+                style={{ color: colorDesignation, fontSize: fsDesignation }}
               >
                 {active.designation}
               </p>
@@ -270,7 +270,7 @@ export const CircularTestimonials = ({
                   style={{
                     width:  i === activeIndex ? "20px" : "6px",
                     height: "6px",
-                    backgroundColor: i === activeIndex ? "#18b2de" : "rgba(255,255,255,0.2)",
+                    backgroundColor: i === activeIndex ? "#18b2de" : "rgba(14,26,43,0.15)",
                   }}
                 />
               ))}

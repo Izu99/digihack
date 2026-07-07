@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-const CASES = [
+export const CASES = [
   {
     id: "c1",
     client: "Immense Home",
@@ -12,7 +13,7 @@ const CASES = [
     headline: "Sri Lanka's #1 luxury vinyl tile brand — reimagined online.",
     desc: "Complete digital transformation: e-commerce website, brand refresh and SEO strategy that drove 3× organic traffic growth.",
     stat: { val: "3×", label: "Traffic Growth" },
-    img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200",
+    img: "/work/immense-home.jpg",
     big: true,
   },
   {
@@ -22,7 +23,7 @@ const CASES = [
     headline: "Rising star in Sri Lankan rap goes viral.",
     desc: "Social media strategy, video content and paid campaigns that grew his fanbase 5× in 90 days.",
     stat: { val: "5×", label: "Fan Growth" },
-    img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
+    img: "/work/reyance.jpg",
   },
   {
     id: "c3",
@@ -31,7 +32,7 @@ const CASES = [
     headline: "Top Japanese language institute — built to scale.",
     desc: "Custom LMS platform, SEO-first content strategy and lead generation system for Sri Lanka's top Japanese institute.",
     stat: { val: "60%", label: "More Leads" },
-    img: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&q=80&w=800",
+    img: "/work/yume-international.jpg",
   },
   {
     id: "c4",
@@ -40,7 +41,7 @@ const CASES = [
     headline: "Export-import powerhouse — from SL to Australia.",
     desc: "Bilingual corporate website and digital marketing strategy spanning Sri Lanka and Australian markets.",
     stat: { val: "2×", label: "Markets" },
-    img: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&q=80&w=800",
+    img: "/work/rada-group.jpg",
   },
   {
     id: "c5",
@@ -49,11 +50,11 @@ const CASES = [
     headline: "Premium car detailing brand — Australia.",
     desc: "Full brand identity, social media content calendar and Google Ads strategy for premium auto detailing in Australia.",
     stat: { val: "4.9★", label: "Google Rating" },
-    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800",
+    img: "/work/gc-autohub.jpg",
   },
 ];
 
-function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
+export function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -92,8 +93,10 @@ function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
         )}
         {/* Client name */}
         <div className="mt-4 flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-[#18b2de] flex items-center justify-center flex-shrink-0">
-            <span className="text-[#0E1A2B] text-[9px] font-black">{c.client[0]}</span>
+          <div className="w-7 h-7 rounded-full bg-[#18b2de] flex items-center justify-center flex-shrink-0 overflow-hidden">
+            <span className="text-[#0E1A2B] text-[10px] font-black leading-none select-none">
+              {c.client.split(" ").map(w => w[0]).slice(0, 2).join("")}
+            </span>
           </div>
           <span className="text-white/60 text-xs font-semibold">{c.client}</span>
         </div>
@@ -109,7 +112,7 @@ export default function Work() {
   const [big, ...rest] = CASES;
 
   return (
-    <section id="work" className="py-24 bg-[#0E1A2B]">
+    <section className="py-24 bg-white">
       <div ref={ref} className="max-w-[1180px] mx-auto px-7">
         {/* Heading */}
         <motion.div
@@ -120,11 +123,11 @@ export default function Work() {
         >
           <div>
             <span className="label block mb-4">Clients & Results</span>
-            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-white leading-[1.08]">
-              Work We&apos;re <span className="text-[#18b2de]">Proud Of</span>
+            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
+              Work We&apos;re <span className="text-[#0B84A8]">Proud Of</span>
             </h2>
           </div>
-          <p className="text-[#9aa3b2] text-[15px] leading-[1.65] max-w-[380px]">
+          <p className="text-[#54607A] text-[15px] leading-[1.65] max-w-[380px]">
             From Sri Lanka to Australia — brands we&apos;ve helped build, grow and dominate their markets.
           </p>
         </motion.div>
@@ -148,15 +151,15 @@ export default function Work() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="flex justify-center mt-12"
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2.5 border border-white/20 text-white font-bold px-8 py-4 rounded-xl text-[14.5px] cursor-pointer hover:border-[#18b2de]/60 hover:text-[#18b2de] transition-all duration-200 group"
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2.5 border border-[#0E1A2B]/20 text-[#0E1A2B] font-bold px-8 py-4 rounded-xl text-[14.5px] cursor-pointer hover:border-[#18b2de]/60 hover:text-[#0B84A8] transition-all duration-200 group"
           >
             Start Your Project
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

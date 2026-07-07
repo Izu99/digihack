@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const PRACTICES = [
+export const PRACTICES = [
   {
     num: "01 / Software",
     title: "Engineering\nthat ships.",
@@ -105,6 +105,52 @@ const SERVICES = [
   },
 ];
 
+export function PracticeCard({ p, delay }: { p: (typeof PRACTICES)[0]; delay: number }) {
+  const isSoftware = p.style === "software";
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay }}
+      className={`relative rounded-3xl p-10 overflow-hidden min-h-[400px] flex flex-col justify-between group cursor-default ${
+        isSoftware
+          ? "bg-gradient-to-br from-white via-[#F7FAFD] to-[#EAF0F6] border border-[#0E1A2B]/10"
+          : "bg-gradient-to-br from-[#18b2de] via-[#0d8fb3] to-[#0a7a99]"
+      }`}
+    >
+      {/* Decorative circles */}
+      <div className={`absolute -right-16 -top-16 w-60 h-60 rounded-full ${isSoftware ? "bg-[#0E1A2B]/[0.03]" : "bg-white/5"}`} />
+      <div className={`absolute right-8 -bottom-10 w-32 h-32 rounded-full border border-dashed ${isSoftware ? "border-[#0E1A2B]/10" : "border-white/15"}`} />
+
+      <div className="relative">
+        <p className={`font-mono text-[11px] tracking-[0.18em] uppercase mb-3 ${isSoftware ? "text-[#6B7A93]" : "text-white/60"}`}>{p.num}</p>
+        <h3 className={`text-[32px] font-black leading-[1.1] tracking-tight mb-4 whitespace-pre-line ${isSoftware ? "text-[#0E1A2B]" : "text-white"}`}>{p.title}</h3>
+        <p className={`text-[14.5px] leading-[1.7] mb-6 max-w-[380px] ${isSoftware ? "text-[#54607A]" : "text-white/85"}`}>{p.desc}</p>
+        <ul className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
+          {p.items.map((item) => (
+            <li key={item} className={`flex items-center gap-2 text-[13.5px] ${isSoftware ? "text-[#0E1A2B]/80" : "text-white/90"}`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={`flex items-center gap-3 text-sm font-bold border-t pt-5 self-start group-hover:gap-5 transition-all duration-200 ${
+        isSoftware ? "border-[#0E1A2B]/12 text-[#0E1A2B]" : "border-white/20 text-white"
+      }`}>
+        {p.link}
+        <span className={`w-8 h-8 rounded-full flex items-center justify-center ${isSoftware ? "bg-[#0E1A2B]/10" : "bg-white/15"}`}>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
+          </svg>
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Services() {
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
@@ -112,9 +158,9 @@ export default function Services() {
   const inView2 = useInView(ref2, { once: true, margin: "-60px" });
 
   return (
-    <div id="services">
+    <div>
       {/* ── TWO PRACTICES ── */}
-      <section className="py-24 bg-[#15233A]">
+      <section className="py-24 bg-[#F3F6FA]">
         <div ref={ref1} className="max-w-[1180px] mx-auto px-7">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -123,10 +169,10 @@ export default function Services() {
             className="text-center mb-14"
           >
             <span className="label block mb-4">What We Do</span>
-            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-white leading-[1.08]">
-              Two practices. <span className="text-[#18b2de]">One team.</span>
+            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
+              Two practices. <span className="text-[#0B84A8]">One team.</span>
             </h2>
-            <p className="text-[#9aa3b2] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
+            <p className="text-[#54607A] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
               We pair product engineering with growth marketing so your launch, scale and
               retention strategy live in the same room.
             </p>
@@ -134,53 +180,14 @@ export default function Services() {
 
           <div className="grid md:grid-cols-2 gap-6" data-reveal-stagger>
             {PRACTICES.map((p, i) => (
-              <motion.div
-                key={p.num}
-                initial={{ opacity: 0, y: 32 }}
-                animate={inView1 ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.12 }}
-                className={`relative rounded-3xl p-10 overflow-hidden min-h-[400px] flex flex-col justify-between group cursor-default ${
-                  p.style === "software"
-                    ? "bg-gradient-to-br from-[#15233A] via-[#0E1A2B] to-[#0a1525] border border-white/10"
-                    : "bg-gradient-to-br from-[#18b2de] via-[#0d8fb3] to-[#0a7a99]"
-                }`}
-              >
-                {/* Decorative circles */}
-                <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full bg-white/5" />
-                <div className="absolute right-8 -bottom-10 w-32 h-32 rounded-full border border-dashed border-white/15" />
-
-                <div className="relative">
-                  <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/60 mb-3">{p.num}</p>
-                  <h3 className="text-[32px] font-black text-white leading-[1.1] tracking-tight mb-4 whitespace-pre-line">{p.title}</h3>
-                  <p className="text-white/85 text-[14.5px] leading-[1.7] mb-6 max-w-[380px]">{p.desc}</p>
-                  <ul className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
-                    {p.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-[13.5px] text-white/90">
-                        <span className="w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className={`flex items-center gap-3 text-sm font-bold border-t pt-5 self-start ${
-                  p.style === "software" ? "border-white/12 text-white" : "border-white/20 text-white"
-                } group-hover:gap-5 transition-all duration-200`}>
-                  {p.link}
-                  <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10m0 0L9 4m4 4l-4 4" />
-                    </svg>
-                  </span>
-                </div>
-              </motion.div>
+              <PracticeCard key={p.num} p={p} delay={i * 0.12} />
             ))}
           </div>
         </div>
       </section>
 
       {/* ── 4-COL SERVICES GRID ── */}
-      <section className="py-24 bg-[#0E1A2B]">
+      <section className="py-24 bg-white">
         <div ref={ref2} className="max-w-[1180px] mx-auto px-7">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -189,10 +196,10 @@ export default function Services() {
             className="text-center mb-14"
           >
             <span className="label block mb-4">Capabilities</span>
-            <h2 className="text-[42px] font-black tracking-tight text-white leading-[1.08]">
-              Best-In-Class <span className="text-[#18b2de]">Digital Solutions</span>
+            <h2 className="text-[42px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
+              Best-In-Class <span className="text-[#0B84A8]">Digital Solutions</span>
             </h2>
-            <p className="text-[#9aa3b2] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
+            <p className="text-[#54607A] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
               A combined product & marketing toolkit — choose a single service or wrap it
               into a long-term partnership.
             </p>
@@ -206,16 +213,16 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
-                className="relative group p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:-translate-y-1 hover:border-[#18b2de]/30 hover:shadow-[0_10px_30px_-18px_rgba(24,178,222,0.3)] transition-all duration-200 cursor-default"
+                className="relative group p-6 rounded-2xl border border-[#0E1A2B]/8 bg-[#0E1A2B]/[0.03] hover:-translate-y-1 hover:border-[#18b2de]/30 hover:shadow-[0_10px_30px_-18px_rgba(24,178,222,0.3)] transition-all duration-200 cursor-default"
               >
-                <span className="absolute top-4 right-4 font-mono text-[11px] text-white/20 group-hover:text-[#18b2de]/40 transition-colors duration-200">
+                <span className="absolute top-4 right-4 font-mono text-[11px] text-[#0E1A2B]/20 group-hover:text-[#18b2de]/60 transition-colors duration-200">
                   {svc.num}
                 </span>
                 <div className="w-11 h-11 rounded-xl bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center mb-4 group-hover:bg-[#18b2de]/20 transition-colors duration-200">
                   {svc.icon}
                 </div>
-                <h4 className="text-white font-bold text-[15px] mb-2 leading-snug">{svc.title}</h4>
-                <p className="text-[#7A8FA6] text-[12.5px] leading-[1.55]">{svc.desc}</p>
+                <h4 className="text-[#0E1A2B] font-bold text-[15px] mb-2 leading-snug">{svc.title}</h4>
+                <p className="text-[#6B7A93] text-[12.5px] leading-[1.55]">{svc.desc}</p>
               </motion.div>
             ))}
           </div>

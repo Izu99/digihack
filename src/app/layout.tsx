@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -35,10 +39,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakarta.variable} ${jetbrainsMono.variable}`}
-      style={{ colorScheme: "dark" }}
+      style={{ colorScheme: "light" }}
     >
-      <body className="bg-[#0E1A2B] text-[#F0F4F8] antialiased overflow-x-hidden">
-        {children}
+      <body className="bg-white text-[#0E1A2B] antialiased overflow-x-hidden">
+        <ScrollProgress />
+        <ScrollReveal />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
