@@ -2,6 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 const CLIENTS = [
   { name: "Immense Home",       industry: "Luxury Vinyl Tile · Sri Lanka" },
@@ -11,20 +15,20 @@ const CLIENTS = [
   { name: "GC AutoHub",         industry: "Car Detailing · Australia" },
 ];
 
-/* Duplicate 4× so the loop never shows a gap */
-const TRACK = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
+/* Exactly 3 copies — the GSAP tween below relies on this to loop seamlessly */
+const COPIES = 3;
+const TRACK = Array.from({ length: COPIES }, () => CLIENTS).flat();
 
-function TickerItem({ name, industry }: { name: string; industry: string }) {
+function RibbonItem({ name, industry }: { name: string; industry: string }) {
   return (
     <span className="inline-flex items-center gap-3 px-8 flex-shrink-0">
-      <span className="font-bold text-[#0E1A2B] text-[15px] whitespace-nowrap">
+      <span className="font-bold text-[#0E1A2B] text-[17px] whitespace-nowrap">
         {name}
       </span>
-      <span className="text-[#6B7A93] text-[13px] whitespace-nowrap font-mono">
+      <span className="text-[#6B7A93] text-[14px] whitespace-nowrap font-mono">
         {industry}
       </span>
-      {/* Separator dot */}
-      <span className="w-1 h-1 rounded-full bg-[#18b2de]/40 flex-shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#18b2de] flex-shrink-0" />
     </span>
   );
 }
@@ -32,6 +36,30 @@ function TickerItem({ name, industry }: { name: string; industry: string }) {
 export default function Clients() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!trackRef.current) return;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      // Seamless infinite loop: content is duplicated exactly COPIES times,
+      // so animating to -(100/COPIES)% and repeating advances by exactly one
+      // copy's width each cycle — no jump, no reset frame.
+      const tween = gsap.to(trackRef.current, {
+        xPercent: -100 / COPIES,
+        duration: 26,
+        ease: "none",
+        repeat: -1,
+      });
+
+      return () => {
+        tween.kill();
+      };
+    },
+    { scope: ref }
+  );
 
   return (
     <section className="py-24 bg-[#F3F6FA] overflow-hidden">
@@ -55,54 +83,18 @@ export default function Clients() {
         </motion.div>
       </div>
 
-      {/* ── Ticker rows ── */}
-      <div className="relative">
-        {/* Left + right gradient fade edges */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10"
-          style={{ background: "linear-gradient(to right, #F3F6FA, transparent)" }} />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10"
-          style={{ background: "linear-gradient(to left, #F3F6FA, transparent)" }} />
-
-        {/* Row 1 — scroll left */}
-        <div className="flex overflow-hidden mb-4">
-          <div
-            className="flex"
-            style={{ animation: "ticker-left 40s linear infinite" }}
-          >
+      {/* ── Ribbon ── */}
+      <div className="relative my-14 py-1">
+        <div
+          className="relative w-[120vw] left-1/2 -translate-x-1/2 -rotate-[3deg] bg-white border-y border-[#0E1A2B]/8 py-9 shadow-[0_20px_50px_-20px_rgba(14,26,43,0.15)] overflow-hidden"
+        >
+          <div ref={trackRef} className="flex w-max" style={{ willChange: "transform" }}>
             {TRACK.map((c, i) => (
-              <TickerItem key={`r1-${i}`} name={c.name} industry={c.industry} />
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2 — scroll right */}
-        <div className="flex overflow-hidden">
-          <div
-            className="flex"
-            style={{ animation: "ticker-right 40s linear infinite" }}
-          >
-            {[...TRACK].reverse().map((c, i) => (
-              <TickerItem key={`r2-${i}`} name={c.name} industry={c.industry} />
+              <RibbonItem key={i} name={c.name} industry={c.industry} />
             ))}
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes ticker-left {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        @keyframes ticker-right {
-          from { transform: translateX(-50%); }
-          to   { transform: translateX(0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="ticker-left"], [style*="ticker-right"] {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
