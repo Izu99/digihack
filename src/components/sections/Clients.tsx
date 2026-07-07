@@ -86,7 +86,7 @@ export default function Clients() {
       {/* ── Ribbon ── */}
       <div className="relative my-14 py-1">
         <div
-          className="relative w-[120vw] left-1/2 -translate-x-1/2 -rotate-[3deg] bg-white border-y border-[#0E1A2B]/8 py-9 shadow-[0_20px_50px_-20px_rgba(14,26,43,0.15)] overflow-hidden"
+          className="relative w-[120vw] left-1/2 -translate-x-1/2 -rotate-[3deg] bg-[#F3F6FA] py-9 overflow-hidden"
         >
           <div ref={trackRef} className="flex w-max" style={{ willChange: "transform" }}>
             {TRACK.map((c, i) => (

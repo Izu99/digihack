@@ -1,20 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import KineticHeading from "@/components/ui/KineticHeading";
 
 export default function PageHeader({
   label,
   title,
   description,
+  kinetic = false,
 }: {
   label: string;
   title: React.ReactNode;
   description?: string;
+  /** Opt-in minimalist kinetic-typography reveal for the title (title must be a plain string) */
+  kinetic?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-[#0E1A2B] pt-40 pb-20">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-[0.1]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#18b2de]/[0.08] blur-3xl" />
+      <div
+        data-speed="0.85"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#18b2de]/[0.08] blur-3xl"
+      />
 
       <div className="relative max-w-[1180px] mx-auto px-7 text-center">
         <motion.div
@@ -27,14 +34,23 @@ export default function PageHeader({
           {label}
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-black text-[44px] md:text-[64px] leading-[1.05] tracking-tight text-white"
-        >
-          {title}
-        </motion.h1>
+        {kinetic && typeof title === "string" ? (
+          <KineticHeading
+            text={title}
+            as="h1"
+            delay={0.1}
+            className="font-black text-[44px] md:text-[64px] leading-[1.05] tracking-tight text-white"
+          />
+        ) : (
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-black text-[44px] md:text-[64px] leading-[1.05] tracking-tight text-white"
+          >
+            {title}
+          </motion.h1>
+        )}
 
         {description && (
           <motion.p

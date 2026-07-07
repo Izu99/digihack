@@ -57,7 +57,7 @@ export default function Contact() {
 
   return (
     <section className="py-24 bg-[#F3F6FA] relative overflow-hidden">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.06] blur-3xl" />
+      <div data-speed="1.15" className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.06] blur-3xl" />
 
       <div ref={ref} className="max-w-[1180px] mx-auto px-7 relative z-10">
         {/* Heading */}

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import KineticHeading from "@/components/ui/KineticHeading";
 
 export const PRACTICES = [
   {
@@ -22,7 +23,7 @@ export const PRACTICES = [
   },
 ];
 
-const SERVICES = [
+export const SERVICES = [
   {
     num: "/01",
     title: "Web Design & Development",
@@ -125,7 +126,13 @@ export function PracticeCard({ p, delay }: { p: (typeof PRACTICES)[0]; delay: nu
 
       <div className="relative">
         <p className={`font-mono text-[11px] tracking-[0.18em] uppercase mb-3 ${isSoftware ? "text-[#6B7A93]" : "text-white/60"}`}>{p.num}</p>
-        <h3 className={`text-[32px] font-black leading-[1.1] tracking-tight mb-4 whitespace-pre-line ${isSoftware ? "text-[#0E1A2B]" : "text-white"}`}>{p.title}</h3>
+        <KineticHeading
+          text={p.title}
+          as="h3"
+          accentFrom={2}
+          accentClassName={isSoftware ? "text-[#0B84A8]" : "text-[#0E1A2B]"}
+          className={`text-[32px] font-black leading-[1.1] mb-4 ${isSoftware ? "text-[#0E1A2B]" : "text-white"}`}
+        />
         <p className={`text-[14.5px] leading-[1.7] mb-6 max-w-[380px] ${isSoftware ? "text-[#54607A]" : "text-white/85"}`}>{p.desc}</p>
         <ul className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
           {p.items.map((item) => (
@@ -169,9 +176,12 @@ export default function Services() {
             className="text-center mb-14"
           >
             <span className="label block mb-4">What We Do</span>
-            <h2 className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
-              Two practices. <span className="text-[#0B84A8]">One team.</span>
-            </h2>
+            <KineticHeading
+              text="Two practices. One team."
+              accentFrom={2}
+              accentClassName="text-[#0B84A8]"
+              className="text-[42px] md:text-[46px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]"
+            />
             <p className="text-[#54607A] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
               We pair product engineering with growth marketing so your launch, scale and
               retention strategy live in the same room.
@@ -196,9 +206,12 @@ export default function Services() {
             className="text-center mb-14"
           >
             <span className="label block mb-4">Capabilities</span>
-            <h2 className="text-[42px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]">
-              Best-In-Class <span className="text-[#0B84A8]">Digital Solutions</span>
-            </h2>
+            <KineticHeading
+              text="Best-In-Class Digital Solutions"
+              accentFrom={1}
+              accentClassName="text-[#0B84A8]"
+              className="text-[42px] font-black tracking-tight text-[#0E1A2B] leading-[1.08]"
+            />
             <p className="text-[#54607A] mt-4 text-[15.5px] leading-[1.65] max-w-[600px] mx-auto">
               A combined product & marketing toolkit — choose a single service or wrap it
               into a long-term partnership.
@@ -221,7 +234,12 @@ export default function Services() {
                 <div className="w-11 h-11 rounded-xl bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center mb-4 group-hover:bg-[#18b2de]/20 transition-colors duration-200">
                   {svc.icon}
                 </div>
-                <h4 className="text-[#0E1A2B] font-bold text-[15px] mb-2 leading-snug">{svc.title}</h4>
+                <KineticHeading
+                  text={svc.title}
+                  as="h4"
+                  delay={i * 0.03}
+                  className="text-[#0E1A2B] font-bold text-[15px] mb-2 leading-snug"
+                />
                 <p className="text-[#6B7A93] text-[12.5px] leading-[1.55]">{svc.desc}</p>
               </motion.div>
             ))}

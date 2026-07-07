@@ -49,7 +49,7 @@ export default function Testimonials() {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
-      <div className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
+      <div data-speed="1.1" className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
 
       <div ref={ref} className="max-w-[1180px] mx-auto px-7">
         {/* Section heading */}

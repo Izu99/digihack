@@ -67,7 +67,8 @@
 
   html {
     color-scheme: light;
-    scroll-behavior: smooth;
+    /* No native scroll-behavior: smooth — ScrollSmoother owns scroll easing now,
+       stacking both causes double-smoothing/jump artifacts. */
   }
 
   body {
@@ -98,6 +99,19 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg-alt); }
   ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+
+  /* ScrollSmoother baseline — it also sets these via JS on create(), but
+     declaring them upfront avoids a flash of normal (unwrapped) layout
+     before hydration finishes. */
+  #smooth-wrapper {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+  #smooth-content {
+    overflow: visible;
+    width: 100%;
+  }
 }
 
 /* ——— KEYFRAMES ——— */
@@ -190,6 +204,18 @@
   .marquee-reverse { animation: marquee-reverse 40s linear infinite; }
   .marquee-forward:hover,
   .marquee-reverse:hover { animation-play-state: paused; }
+
+  /* Services process timeline — node state toggled by ScrollTrigger as the
+     drawn rail line passes each step */
+  .process-node {
+    transition: background-color 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s;
+  }
+  .process-node.is-active {
+    background: #18b2de;
+    border-color: #18b2de;
+    color: #fff;
+    box-shadow: 0 0 0 7px rgba(24, 178, 222, 0.12);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

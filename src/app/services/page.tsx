@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
-import Services from "@/components/sections/Services";
+import PracticesKinetic from "@/components/sections/PracticesKinetic";
+import CapabilitiesRail from "@/components/sections/CapabilitiesRail";
 import Process from "@/components/sections/Process";
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function ServicesPage() {
         label="Services"
         title="Capabilities & Process"
         description="A combined product and marketing toolkit, delivered through a process built for velocity — from discovery to scale."
+        kinetic
       />
-      <Services />
+      <PracticesKinetic />
+      <CapabilitiesRail />
       <Process />
     </>
   );

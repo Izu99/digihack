@@ -48,7 +48,7 @@ export default function WhyUs() {
 
   return (
     <section className="py-24 bg-[#F3F6FA] relative overflow-hidden">
-      <div className="pointer-events-none absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#18b2de]/[0.06] blur-3xl" />
+      <div data-speed="0.8" className="pointer-events-none absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#18b2de]/[0.06] blur-3xl" />
 
       <div className="max-w-[1180px] mx-auto px-7">
         <div className="grid md:grid-cols-2 gap-16">

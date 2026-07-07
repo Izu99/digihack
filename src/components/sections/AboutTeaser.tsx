@@ -11,7 +11,7 @@ export default function AboutTeaser() {
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      <div className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
+      <div data-speed="0.9" className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#18b2de]/[0.04] blur-3xl" />
 
       <div ref={ref} className="max-w-[1180px] mx-auto px-7">
         <div className="grid md:grid-cols-2 gap-16 items-center">
