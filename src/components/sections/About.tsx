@@ -70,6 +70,7 @@ export default function About() {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
                 alt="DigiHack team"
                 fill
+                priority
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -109,7 +110,7 @@ export default function About() {
                     {f.icon}
                   </div>
                   <div>
-                    <h4 className="text-[#0E1A2B] font-bold text-sm mb-1">{f.title}</h4>
+                    <h3 className="text-[#0E1A2B] font-bold text-sm mb-1">{f.title}</h3>
                     <p className="text-[#6B7A93] text-xs leading-[1.55]">{f.desc}</p>
                   </div>
                 </div>
@@ -127,7 +128,7 @@ export default function About() {
                 Let&apos;s Work Together
               </Link>
               <a
-                href="tel:+94717586847"
+                href="tel:+94760142500"
                 className="inline-flex items-center gap-2.5 text-[#0E1A2B] font-bold text-[14.5px] cursor-pointer"
               >
                 <span className="w-8 h-8 rounded-full bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center">
@@ -135,7 +136,7 @@ export default function About() {
                     <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z" />
                   </svg>
                 </span>
-                071 758 6847
+                076 014 2500
               </a>
             </div>
           </motion.div>

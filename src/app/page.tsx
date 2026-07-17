@@ -1,11 +1,13 @@
 import Hero from "@/components/sections/Hero";
 import BigStatement from "@/components/sections/BigStatement";
 import Stats from "@/components/sections/Stats";
+import Differentiators from "@/components/sections/Differentiators";
 import AboutTeaser from "@/components/sections/AboutTeaser";
 import ServicesTeaser from "@/components/sections/ServicesTeaser";
 import HowWeWorkTeaser from "@/components/sections/HowWeWorkTeaser";
 import TechStack from "@/components/sections/TechStack";
 import WorkTeaser from "@/components/sections/WorkTeaser";
+import FlagshipCase from "@/components/sections/FlagshipCase";
 import Clients from "@/components/sections/Clients";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -18,11 +20,13 @@ export default function Home() {
       <Clients />
       <BigStatement />
       <Stats />
+      <Differentiators />
       <AboutTeaser />
       <ServicesTeaser />
       <HowWeWorkTeaser />
       <TechStack />
       <WorkTeaser />
+      <FlagshipCase />
       <Testimonials />
       <FAQ />
       <ContactCTA />

@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "Services — DigiHack",
   description:
     "Full-service digital agency capabilities: web & software development, digital marketing, SEO, branding and content — plus our five-phase delivery process.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services — DigiHack",
+    description:
+      "Full-service digital agency capabilities: web & software development, digital marketing, SEO, branding and content — plus our five-phase delivery process.",
+    url: "/services",
+  },
+  twitter: {
+    title: "Services — DigiHack",
+    description:
+      "Full-service digital agency capabilities: web & software development, digital marketing, SEO, branding and content — plus our five-phase delivery process.",
+  },
 };
 
 export default function ServicesPage() {

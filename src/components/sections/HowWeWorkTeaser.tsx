@@ -52,7 +52,7 @@ export default function HowWeWorkTeaser() {
                 <div className="w-16 h-16 rounded-full border-2 bg-[#F3F6FA] border-[#18b2de]/35 text-[#0B84A8] flex items-center justify-center mx-auto mb-4 relative z-10 font-black text-xl">
                   {step.num}
                 </div>
-                <h4 className="text-[15px] font-bold mb-2 text-[#0E1A2B]">{step.title}</h4>
+                <h3 className="text-[15px] font-bold mb-2 text-[#0E1A2B]">{step.title}</h3>
                 <p className="text-[12.5px] leading-[1.55] text-[#6B7A93]">{step.desc}</p>
               </motion.div>
             ))}

@@ -5,7 +5,9 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const ThreeCanvas = dynamic(() => import("@/components/ui/ThreeCanvas"), {
+// To revert to the previous model, swap this import back to:
+// import("@/components/ui/ThreeCanvas")
+const ThreeCanvas = dynamic(() => import("@/components/ui/HeroScene3D"), {
   ssr: false,
   loading: () => null,
 });
@@ -113,7 +115,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 border border-white/18 bg-white/[0.05] rounded-full px-4 py-1.5 text-[11px] font-semibold text-white/75 tracking-[0.24em] uppercase font-mono mb-10"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#18b2de] animate-pulse" />
-          Software · Digital Marketing · Sri Lanka & USA
+          Digital Marketing · Software · Sri Lanka & USA
         </motion.div>
 
         {/* Headline — line-by-line reveal */}
@@ -165,33 +167,6 @@ export default function Hero() {
           <MagneticBtn href="/work" primary={false}>
             View Our Work
           </MagneticBtn>
-        </motion.div>
-
-        {/* Subtle contact line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-10 flex items-center justify-center gap-3"
-        >
-          <a
-            href="tel:+94717586847"
-            className="text-[#7A8FA6] hover:text-[#18b2de] transition-colors duration-200 text-[13px] font-mono flex items-center gap-2"
-          >
-            <span className="w-5 h-5 rounded-full bg-[#18b2de]/15 flex items-center justify-center">
-              <svg viewBox="0 0 16 16" fill="currentColor" className="w-2.5 h-2.5 text-[#18b2de]">
-                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z" />
-              </svg>
-            </span>
-            071 758 6847
-          </a>
-          <span className="w-px h-4 bg-white/15" />
-          <a
-            href="mailto:digihacklk@gmail.com"
-            className="text-[#7A8FA6] hover:text-[#18b2de] transition-colors duration-200 text-[13px] font-mono"
-          >
-            digihacklk@gmail.com
-          </a>
         </motion.div>
       </div>
     </section>

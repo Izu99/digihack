@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "About Us — DigiHack",
   description:
     "Meet DigiHack — a software & digital marketing studio operating from Sri Lanka & the United States, built on strategy-first thinking and long-term partnerships.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us — DigiHack",
+    description:
+      "Meet DigiHack — a software & digital marketing studio operating from Sri Lanka & the United States, built on strategy-first thinking and long-term partnerships.",
+    url: "/about",
+  },
+  twitter: {
+    title: "About Us — DigiHack",
+    description:
+      "Meet DigiHack — a software & digital marketing studio operating from Sri Lanka & the United States, built on strategy-first thinking and long-term partnerships.",
+  },
 };
 
 export default function AboutPage() {

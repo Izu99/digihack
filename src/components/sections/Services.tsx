@@ -6,26 +6,36 @@ import KineticHeading from "@/components/ui/KineticHeading";
 
 export const PRACTICES = [
   {
-    num: "01 / Software",
-    title: "Engineering\nthat ships.",
+    num: "01 / Digital Marketing",
+    title: "Digital\nMarketing.",
+    desc: "Full-funnel digital marketing — strategy, creative, paid media and SEO — built around real data, not vanity metrics.",
+    items: ["Social Media Management", "Brand Building", "Graphic Design", "Video Creation", "SEO & Content Management", "Consultation"],
+    link: "Explore Marketing",
+    style: "marketing",
+  },
+  {
+    num: "02 / Software Solutions",
+    title: "Software\nSolutions.",
     desc: "From discovery to deployment — we build production-grade web apps, mobile apps and software platforms with modern stacks and senior engineers.",
     items: ["Web Apps", "Mobile Apps", "SaaS Platforms", "Cloud & DevOps", "API & Integrations", "AI & Automation"],
     link: "Explore Software",
     style: "software",
-  },
-  {
-    num: "02 / Marketing",
-    title: "Growth\nthat compounds.",
-    desc: "Full-funnel digital marketing — strategy, creative, paid media and SEO — built around real data, not vanity metrics.",
-    items: ["SEO & Content", "Social Media", "Graphic Design", "Video Creation", "Brand Building", "Consultation"],
-    link: "Explore Marketing",
-    style: "marketing",
   },
 ];
 
 export const SERVICES = [
   {
     num: "/01",
+    title: "Digital & Social Media Marketing",
+    desc: "Data-driven campaigns across all major social platforms.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
+        <path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+      </svg>
+    ),
+  },
+  {
+    num: "/02",
     title: "Web Design & Development",
     desc: "Marketing sites, dashboards and complex web applications.",
     icon: (
@@ -35,7 +45,7 @@ export const SERVICES = [
     ),
   },
   {
-    num: "/02",
+    num: "/03",
     title: "Software & App Development",
     desc: "iOS, Android & cross-platform apps with modern frameworks.",
     icon: (
@@ -45,22 +55,12 @@ export const SERVICES = [
     ),
   },
   {
-    num: "/03",
+    num: "/04",
     title: "Graphic Design",
     desc: "Visual identities, print and digital graphics that stand out.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
         <path d="M2 13.5V20a2 2 0 002 2h16a2 2 0 002-2v-6.5" /><path d="M12 2L2 8l10 6 10-6-10-6z" />
-      </svg>
-    ),
-  },
-  {
-    num: "/04",
-    title: "Digital & Social Media Marketing",
-    desc: "Data-driven campaigns across all major social platforms.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-        <path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
       </svg>
     ),
   },
@@ -129,7 +129,7 @@ export function PracticeCard({ p, delay }: { p: (typeof PRACTICES)[0]; delay: nu
         <KineticHeading
           text={p.title}
           as="h3"
-          accentFrom={2}
+          accentFrom={1}
           accentClassName={isSoftware ? "text-[#0B84A8]" : "text-[#0E1A2B]"}
           className={`text-[32px] font-black leading-[1.1] mb-4 ${isSoftware ? "text-[#0E1A2B]" : "text-white"}`}
         />

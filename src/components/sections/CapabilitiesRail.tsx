@@ -105,9 +105,9 @@ export default function CapabilitiesRail() {
               <div className="w-12 h-12 rounded-xl bg-[#18b2de]/10 text-[#18b2de] flex items-center justify-center mb-10 group-hover:bg-[#18b2de]/20 transition-colors duration-200">
                 {svc.icon}
               </div>
-              <h4 className="text-[#0E1A2B] font-bold text-[15px] md:text-[16px] mb-2 leading-snug tracking-tight">
+              <h3 className="text-[#0E1A2B] font-bold text-[15px] md:text-[16px] mb-2 leading-snug tracking-tight">
                 {svc.title}
-              </h4>
+              </h3>
               <p className="text-[#6B7A93] text-[12.5px] md:text-[13px] leading-[1.6]">{svc.desc}</p>
             </div>
           ))}

@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: "Contact — DigiHack",
   description:
     "Get in touch with DigiHack — call, WhatsApp or email us to start your next web, software or digital marketing project.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact — DigiHack",
+    description:
+      "Get in touch with DigiHack — call, WhatsApp or email us to start your next web, software or digital marketing project.",
+    url: "/contact",
+  },
+  twitter: {
+    title: "Contact — DigiHack",
+    description:
+      "Get in touch with DigiHack — call, WhatsApp or email us to start your next web, software or digital marketing project.",
+  },
 };
 
 export default function ContactPage() {

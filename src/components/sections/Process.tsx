@@ -78,7 +78,7 @@ export default function Process() {
 
                 <KineticHeading
                   text={step.title}
-                  as="h4"
+                  as="h3"
                   delay={0.2 + i * 0.1}
                   className={`text-[15px] font-bold mb-2 transition-colors duration-200 ${active === i ? "text-[#0E1A2B]" : "text-[#0E1A2B]/70 group-hover:text-[#0E1A2B]"}`}
                 />

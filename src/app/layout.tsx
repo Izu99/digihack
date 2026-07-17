@@ -21,16 +21,50 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL = "https://digihack-ten.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "DigiHack — Epitom Beyond The Concept",
   description:
     "Full-service digital agency offering web development, software, digital marketing, SEO, branding, and more. Operating from Sri Lanka & the United States.",
   keywords: ["digital agency", "web development", "digital marketing", "SEO", "branding", "Sri Lanka"],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "DigiHack — Epitom Beyond The Concept",
     description: "Full-service digital agency in Sri Lanka & US",
+    url: "/",
+    siteName: "DigiHack",
+    locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "DigiHack — Epitom Beyond The Concept",
+    description: "Full-service digital agency in Sri Lanka & US",
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DigiHack",
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.svg`,
+  description:
+    "Full-service digital agency offering web development, software, digital marketing, SEO, branding, and more. Operating from Sri Lanka & the United States.",
+  email: "digihacklk@gmail.com",
+  telephone: "+94760142500",
+  sameAs: [],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "DigiHack",
+  url: SITE_URL,
 };
 
 export default function RootLayout({
@@ -43,6 +77,14 @@ export default function RootLayout({
       style={{ colorScheme: "light" }}
     >
       <body className="bg-white text-[#0E1A2B] antialiased overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ScrollProgress />
         <ScrollReveal />
         <Navbar />

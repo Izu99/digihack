@@ -85,9 +85,9 @@ export function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) 
       {/* Text */}
       <div className="absolute bottom-0 left-0 right-0 z-10 p-7">
         <p className="text-[#18b2de] text-[11px] font-bold tracking-[0.2em] uppercase font-mono mb-2">{c.tag}</p>
-        <h4 className={`text-white font-black leading-[1.2] tracking-tight mb-2 ${c.big ? "text-[24px]" : "text-[18px]"}`}>
+        <h3 className={`text-white font-black leading-[1.2] tracking-tight mb-2 ${c.big ? "text-[24px]" : "text-[18px]"}`}>
           {c.headline}
-        </h4>
+        </h3>
         {c.big && (
           <p className="text-white/75 text-[14px] leading-[1.6] max-w-[440px]">{c.desc}</p>
         )}

@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: "Our Work — DigiHack",
   description:
     "Client case studies from DigiHack — e-commerce, LMS platforms, social growth and brand campaigns across Sri Lanka, Australia and the US.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: "Our Work — DigiHack",
+    description:
+      "Client case studies from DigiHack — e-commerce, LMS platforms, social growth and brand campaigns across Sri Lanka, Australia and the US.",
+    url: "/work",
+  },
+  twitter: {
+    title: "Our Work — DigiHack",
+    description:
+      "Client case studies from DigiHack — e-commerce, LMS platforms, social growth and brand campaigns across Sri Lanka, Australia and the US.",
+  },
 };
 
 export default function WorkPage() {
